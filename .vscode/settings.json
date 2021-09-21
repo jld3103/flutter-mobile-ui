@@ -3,4 +3,24 @@
         "flutter-elinux": true,
         "phoc": true,
     },
+    "search.exclude": {
+        "flutter-elinux": true,
+        "phoc": true,
+    },
+    "dart.flutterSdkPath": "flutter-elinux/flutter",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+        "source.fixAll": true
+    },
+    "dart.lineLength": 120,
+    "editor.rulers": [
+        120
+    ],
+    "[dart]": {
+        "editor.rulers": [
+            120
+        ],
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+    },
 }
