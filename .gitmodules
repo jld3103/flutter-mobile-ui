@@ -1,0 +1,6 @@
+[submodule "flutter-elinux"]
+path = flutter-elinux
+url = https://github.com/sony/flutter-elinux
+[submodule "phoc"]
+path = phoc
+url = https://gitlab.gnome.org/World/Phosh/phoc

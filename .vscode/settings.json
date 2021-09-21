@@ -1,0 +1,6 @@
+{
+    "files.watcherExclude": {
+        "flutter-elinux": true,
+        "phoc": true,
+    },
+}
