@@ -1,0 +1,17 @@
+name: desktop_entry
+description: A package for interacting the with desktop entry files
+url: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies: 
+  xdg_directories: ^0.2.0
+
+dev_dependencies:
+  stack11_linting:
+    git:
+      url: https://gitlab.com/stack11-oss/linting
+  test: ^1.17.12

@@ -7,8 +7,11 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
+  desktop_entry:
+    path: ../desktop_entry
   flutter:
     sdk: flutter
+  flutter_svg: ^0.22.0
   google_fonts: ^2.1.0
 
 dev_dependencies:
