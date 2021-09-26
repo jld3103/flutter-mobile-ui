@@ -11,13 +11,11 @@ abstract class AppLauncherSourceRepository<T> {
 class Application<T> {
   Application(
     this.name,
-    this.icon,
-    this.data,
+    this.getIcon,
     this.launch,
   );
 
   final String name;
-  final Widget? icon;
-  final T data;
-  final Function(T data) launch;
+  final Future<Widget> Function() getIcon;
+  final Function() launch;
 }

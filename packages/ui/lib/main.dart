@@ -41,9 +41,14 @@ class _HomePageState extends State<HomePage> {
     final List<AppLauncherSourceRepository> sources = [
       LinuxAppLauncherSource(),
     ];
-    for (final source in sources) {
-      applications.addAll(source.getCachedApplications());
-    }
+    WidgetsBinding.instance!.addPostFrameCallback((final _) {
+      setState(() {
+        for (final source in sources) {
+          applications.addAll(source.getCachedApplications());
+        }
+        applications.sort((final a, final b) => a.name.compareTo(b.name));
+      });
+    });
   }
 
   @override
@@ -59,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                     (final application) => Container(
                       margin: const EdgeInsets.all(5),
                       child: InkWell(
-                        onTap: () => application.launch(application.data),
+                        onTap: application.launch,
                         child: Container(
                           padding: const EdgeInsets.all(5),
                           child: Container(
@@ -73,7 +78,18 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(
                                   height: 50,
                                   width: 50,
-                                  child: application.icon != null ? application.icon! : Container(),
+                                  child: FutureBuilder<Widget>(
+                                    future: application.getIcon(),
+                                    builder: (final context, final snapshot) {
+                                      if (snapshot.hasError) {
+                                        return const Icon(Icons.error);
+                                      }
+                                      if (snapshot.hasData) {
+                                        return snapshot.data ?? Container();
+                                      }
+                                      return const CircularProgressIndicator();
+                                    },
+                                  ),
                                 ),
                                 Text(
                                   application.name,
